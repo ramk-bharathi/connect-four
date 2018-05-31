@@ -24,7 +24,6 @@ const GameReducer = (state = initialState, action) => {
             let x = action.x;
             let y = action.y;
             let pos = state.grid.get(x);
-            console.log(pos);
             if(action.player === 1) {
                 pos[y] = 1;
                 let newGrid = state.grid.set(x, pos);

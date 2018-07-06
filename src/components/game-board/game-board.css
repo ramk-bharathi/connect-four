@@ -1,7 +1,18 @@
 .circular-btn {
     border-radius: 50%;
-    background-color: burlywood;
     border: none;
     height: 50px;
     width: 50px;
+}
+
+.burlywood-btn {
+    background-color: burlywood;
+}
+
+.red-btn {
+    background-color: red;
+}
+
+.blue-btn {
+    background-color: blue;
 }

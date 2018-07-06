@@ -10,8 +10,9 @@ gridMap.set(6, [0,0,0,0,0,0,0]);
 
 const initialState = {
     grid: gridMap,
-    player: 0,
-    winner: null
+    player: 1,
+    winner: null,
+    button_class: 'burlywood-btn'
 };
 
 const GameReducer = (state = initialState, action) => {
@@ -24,21 +25,23 @@ const GameReducer = (state = initialState, action) => {
             let x = action.x;
             let y = action.y;
             let pos = state.grid.get(x);
-            if(action.player === 1) {
-                pos[y] = 1;
+            if(action.player == 1) {
+                pos[y-1] = 1;
                 let newGrid = state.grid.set(x, pos);
                 copyState = {
                     ...state,
                     grid: newGrid,
-                    player: 2
+                    player: 2,
+                    button_class: 'red-btn'
                 }
-            } else if(action.player === 2) {
-                pos[y] = 2;
+            } else if(action.player == 2) {
+                pos[y-1] = 2;
                 let newGrid = state.grid.set(x, pos);
                 copyState = {
                     ...state,
                     grid: newGrid,
-                    player: 1
+                    player: 1,
+                    button_class: 'blue-btn'
                 }
             }
             return copyState;

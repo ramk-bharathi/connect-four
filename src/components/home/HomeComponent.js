@@ -5,15 +5,13 @@ import {diskDropped} from './../../store/actions/index';
 
 class HomeComponent extends React.Component {
     diskPressed = (x, y) => {
-        console.log(this.props.grid);
         this.props.diskDropped(this.props.player, x, y);
-        console.log(this.props.grid);
     };
     render() {
         return(
             <div>
                 <h1>Connect Four</h1>
-                <GameBoardComponent onDiskPress={this.diskPressed}/>
+                <GameBoardComponent onDiskPress={this.diskPressed} buttonClass={this.props.button_class}/>
             </div>
         );
     }
@@ -24,6 +22,7 @@ const stateToProps = state => {
         grid: state.game.grid,
         player: state.game.player,
         winner: state.game.winner,
+        button_class: state.game.button_class
     }
 };
 
